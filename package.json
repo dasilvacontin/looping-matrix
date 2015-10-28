@@ -1,0 +1,47 @@
+{
+  "name": "looping-matrix",
+  "version": "1.0.0",
+  "description": "A matrix that loops from edge to edge.",
+  "author": "David da Silva <dasilvacontin@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dasilvacontin/looping-matrix"
+  },
+  "bugs": "https://github.com/dasilvacontin/looping-matrix/issues",
+  "scripts": {
+    "lint": "standard",
+    "test": "node test/index.js | tap-spec",
+    "test:watch": "gaze 'npm test' 'test/**/*.js' 'lib/**/*.js' 'index.js'",
+    "start": "npm run test:watch",
+    "istanbul": "istanbul cover test/index.js",
+
+    "pretest": "npm run lint",
+    "preistanbul": "npm run lint",
+    "prepublish": "npm run test"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib",
+    "LICENSE"
+  ],
+  "keywords": [
+    "looping-matrix",
+    "matrix",
+    "edge",
+    "loop",
+    "position",
+    "infinite"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.8",
+    "tape": "^4.0.1",
+    "tap-spec": "^4.0.2",
+    "gaze-cli": "^0.2.0",
+    "standard": "^4.5.0"
+  }
+}
