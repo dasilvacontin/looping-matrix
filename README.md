@@ -20,6 +20,10 @@ var LoopingMatrix = require('looping-matrix');
 var loopingMatrix = new LoopingMatrix(50, 50);
 loopingMatrix.setCell(1, 1, 'cake')
 loopingMatrix.getCell(51, 51) // => 'cake'
+
+var copy = loopingMatrix.clone()
+loopingMatrix.setCell(1, 1, 'lie')
+copy.getCell(1, 1) // => 'cake'
 ```
 
 
