@@ -1,6 +1,6 @@
 {
   "name": "looping-matrix",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A matrix that loops from edge to edge.",
   "author": "David da Silva <dasilvacontin@gmail.com>",
   "license": "MIT",
@@ -15,7 +15,6 @@
     "test:watch": "gaze 'npm test' 'test/**/*.js' 'lib/**/*.js' 'index.js'",
     "start": "npm run test:watch",
     "istanbul": "istanbul cover test/index.js",
-
     "pretest": "npm run lint",
     "preistanbul": "npm run lint",
     "prepublish": "npm run test"
@@ -34,8 +33,7 @@
     "position",
     "infinite"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.8",
