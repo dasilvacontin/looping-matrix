@@ -50,12 +50,12 @@ LoopingMatrix.prototype.reset = function LoopingMatrix$prototype$reset (value) {
  */
 LoopingMatrix.prototype.loopPosition = function LoopingMatrix$prototype$loopPosition (i, j) {
   if (i < 0) {
-    i += Math.ceil(i / this.height) * this.height
+    i -= Math.floor(i / this.height) * this.height
   } else if (i >= this.height) {
     i %= this.height
   }
   if (j < 0) {
-    j += Math.ceil(j / this.width) * this.width
+    j -= Math.floor(j / this.width) * this.width
   } else if (j >= this.width) {
     j %= this.width
   }

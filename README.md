@@ -18,8 +18,15 @@ $ npm install --save looping-matrix
 ```js
 var LoopingMatrix = require('looping-matrix');
 var loopingMatrix = new LoopingMatrix(50, 50);
+
+loopingMatrix.getCell(1, 1) // => undefined
+loopingMatrix.reset(0)
+loopingMatrix.getCell(1, 1) // => 0
+
 loopingMatrix.setCell(1, 1, 'cake')
+loopingMatrix.getCell(1, 1) // => 'cake'
 loopingMatrix.getCell(51, 51) // => 'cake'
+loopingMatrix.getCell(-49, -49) // => 'cake'
 
 var copy = loopingMatrix.clone()
 loopingMatrix.setCell(1, 1, 'lie')
