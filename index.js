@@ -23,7 +23,11 @@
 function LoopingMatrix (width, height) {
   this.width = width
   this.height = height
-  this.matrix = new Array(width * height)
+  this.matrix = new Array(height)
+  for (var i = 0; i < height; ++i) {
+    var row = new Array(width)
+    this.matrix[i] = row
+  }
 }
 
 /**
@@ -31,8 +35,10 @@ function LoopingMatrix (width, height) {
  * @param value {number} value to be set on all the matrix' positions
  */
 LoopingMatrix.prototype.reset = function LoopingMatrix$prototype$reset (value) {
-  for (var i = 0; i < this.matrix.length; ++i) {
-    this.matrix[i] = value
+  for (var i = 0; i < this.height; ++i) {
+    for (var j = 0; j < this.width; ++j) {
+      this.matrix[i][j] = value
+    }
   }
 }
 
@@ -64,7 +70,7 @@ LoopingMatrix.prototype.loopPosition = function LoopingMatrix$prototype$loopPosi
  */
 LoopingMatrix.prototype.getCell = function LoopingMatrix$prototype$getCell (i, j) {
   var pos = this.loopPosition(i, j)
-  return this.matrix[pos.i * this.width + pos.j]
+  return this.matrix[pos.i][pos.j]
 }
 
 /**
@@ -75,7 +81,7 @@ LoopingMatrix.prototype.getCell = function LoopingMatrix$prototype$getCell (i, j
  */
 LoopingMatrix.prototype.setCell = function LoopingMatrix$prototype$setCell (i, j, val) {
   var pos = this.loopPosition(i, j)
-  this.matrix[pos.i * this.width + pos.j] = val
+  this.matrix[pos.i][pos.j] = val
 }
 
 /**
@@ -100,7 +106,10 @@ LoopingMatrix.prototype.clone = function LoopingMatrix$prototype$clone () {
   var copy = new this.constructor(0, 0)
   copy.width = this.width
   copy.height = this.height
-  copy.matrix = this.matrix.slice(0)
+  copy.matrix = new Array(copy.height)
+  for (var i = 0; i < copy.height; ++i) {
+    copy.matrix[i] = this.matrix[i].slice(0)
+  }
   return copy
 }
 
